@@ -137,7 +137,15 @@ public class TreeUtil {
         builder.append("[");
         for (int i = 0; i < node.size; i++) {
             if (node.children[i] != null) {
+                if (i > 0) {
+                    builder.append(",");
+                }
+
                 treeToString(node.children[i], storage, builder);
+            }
+
+            if (i > 0 || node.children[0] != null) {
+                builder.append(",");
             }
 
             if (node.keys[i] != null) {
@@ -145,13 +153,12 @@ public class TreeUtil {
             } else {
                 builder.append("<null>");
             }
-
-            if (i < node.size - 1) {
-                builder.append(",");
-            }
         }
 
         if (node.children[node.size] != null) {
+            if (node.size > 0) {
+                builder.append(",");
+            }
             treeToString(node.children[node.size], storage, builder);
         }
 
