@@ -141,7 +141,7 @@ public class BtrfsFile {
 
         int insertionSize = data.length;
 
-        // findInsertionIndex assumes that the current node is not full
+        // findInsertionPosition assumes that the current node is not full
         if (root.isFull()) {
             split(new IndexedNodeLinkedList(null, root, 0));
         }
