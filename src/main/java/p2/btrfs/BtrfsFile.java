@@ -187,10 +187,12 @@ public class BtrfsFile {
     }
 
     /**
-     * Splits the given node at the given index.
-     * The method ensures that the given indexedNode points to correct node and index after the split.
+     * Splits the given node referenced via the {@linkplain IndexedNodeLinkedList indexedNode} parameter in the middle. <br>
+     * The method ensures that the given indexedNode points to correct {@linkplain IndexedNodeLinkedList#node node} and {@linkplain IndexedNodeLinkedList#index index} after the split.
      *
-     * @param indexedNode The node to split.
+     * @param indexedNode The path to the node to split, represented by a {@link IndexedNodeLinkedList}
+     *
+     * @see IndexedNodeLinkedList
      */
     private void split(IndexedNodeLinkedList indexedNode) {
 
